@@ -1,25 +1,54 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope) {
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+})
+
+/*Chat controller*/
+.controller('ChatsCtrl', function($scope, Factory, $http) {
+
+  var url = "http://straightarrowdev.com/roel/training/api/test-api.php";
+  var send_data = {
+    api_type: "select",
+    tb_name: "tbl_users"
+  };
+
+  var records = Factory.getRecords(url,send_data);
+
+
+  /*ajax return process*/
+  records.then(function(response){
+    console.log(response.data);
+    $scope.chats = response.data;
+  });
+
+
+
   
-  $scope.chats = Chats.all();
   $scope.remove = function(chat) {
-    Chats.remove(chat);
+    Factory.remove(chat);
   }
+
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ChatDetailCtrl', function($scope, $stateParams, Factory) {
+
+  
+  var url = "http://straightarrowdev.com/roel/training/api/test-api.php";
+  var send_data = {
+    field_query: "id = " + $stateParams.chatId
+  };
+  var records = Factory.getSpecificRecords(url,send_data);
+
+   /*ajax return process*/
+  records.then(function(response){
+    //$scope.chats = response.data;
+
+    console.log(response.data);
+  });
+  
 })
+
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
