@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 
-.factory('Factory', ['$http', '$rootScope', function($http, $rootScope) {
+.factory('Factory', ['$http', '$rootScope','$ionicLoading', function($http, $rootScope, $ionicLoading) {
 
 
   var Factory = {};
@@ -17,6 +17,21 @@ angular.module('starter.services', [])
       headers : {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
     });
 
+  };
+
+  /*show loader*/
+  Factory.loader_show = function(){
+    $ionicLoading.show({
+      animation: 'fade-in',
+      showBackdrop: true,
+      maxWidth: 200,
+      showDelay: 50
+    });
+  };
+
+  /*hide loader*/
+  Factory.loader_hide = function(){
+    $ionicLoading.hide();
   };
 
   return Factory;

@@ -1,8 +1,8 @@
 var Common = {
 
-	test: function(){
+	loader: function(){
 
-		alert();
+		$(".main-content").html("sdsd");
 	},
 
 	//Replacement of jQuery.param
@@ -18,17 +18,6 @@ var Common = {
 	    }
 	  }
 	  return str.join("&");
-	},
+	}
 
-	callWebService: function (){
-
-	    //create request url
-	    var url = "http://straightarrowdev.com/roel/training/api/test-api.php";
-	    
-	    $.ajaxSetup( {beforeSend: function(jqXHR) {
-	        jqXHR.setRequestHeader( "X-Auth-Token", "MC45NzQ2MzIwMCAxNDMyMTg4NzA3LTItdVVyQ3FUNzhXbUoxWjdwQzBxNjMwRzZ4QURWZ3k5c20=" );
-	    }});
-
-
-	}//end of method
 }
