@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
   
-  /*Dashboard controller*/
+  /*Memo controller*/
   .controller('MemoCtrl', function($scope, Factory, $http) {
 
     Factory.loader_show();
@@ -18,6 +18,12 @@ angular.module('starter.controllers', [])
       $scope.memos = response.data;
       Factory.loader_hide();
     });
+  })
+
+  /*Add Memo controller*/
+  .controller('AddMemoCtrl', function($scope, Factory, $http) {
+
+   
   })
 
   /*Chat controller*/

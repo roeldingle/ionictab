@@ -1,8 +1,6 @@
 <ion-view view-title="Memo">
   <ion-content class="padding main-content">
 
-
-
     <div class="list card" ng-repeat="memo in memos">
       <div class="item item-divider">{{memo.tm_title}} 
       <span class="memo-date">
@@ -22,7 +20,7 @@
   <!--floating add icon-->
   <div class="float-button">
     <span class="height-fix">
-      <a ui-sref="memo-add" class="content">
+      <a href="#/tab/memo/memo-add" class="content">
         <i class="ion-ios-compose-outline"> </i>
       </a>
     </span>

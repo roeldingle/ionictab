@@ -48,12 +48,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('memo-add', {
-    url: '/memo-add',
+  .state('tab.memo-add', {
+    url: '/memo/memo-add',
     views: {
-      'memo-add': {
+      'tab-memo': {
         templateUrl: 'templates/memo-add.html',
-        controller: 'MemoCtrl'
+        controller: 'AddMemoCtrl'
       }
     }
   })
